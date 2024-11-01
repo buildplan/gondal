@@ -12,6 +12,7 @@ body, html {
     height: 100vh;
     background-size: cover;
     animation: slideShow 40s infinite;
+    transition: background-image 2s ease-in-out; /* Smooth transition */
 }
 
 .overlay {
@@ -42,6 +43,17 @@ body, html {
     color: white;
     font-size: 3rem;
     text-align: center;
+}
+
+.blinking-cursor {
+    display: inline-block;
+    width: 10px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 footer {
