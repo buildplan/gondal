@@ -1,18 +1,19 @@
 // Typing animation
 const text = 'Welcome to Gondals';
 let i = 0;
-const speed = 150;
+const speed = 200; // Slower typing speed
+const typeIndicator = '<span class="blinking-cursor">|</span>';
+
 function typeWriter() {
     if (i < text.length) {
         document.getElementById("welcome-text").innerHTML += text.charAt(i);
         i++;
         setTimeout(typeWriter, speed);
     } else {
-        setTimeout(() => {
-            document.getElementById("welcome-text").innerHTML += '<span class="blinking-cursor">|</span>';
-        }, speed);
+        document.getElementById("welcome-text").innerHTML += typeIndicator;
     }
 }
+
 document.addEventListener('DOMContentLoaded', typeWriter);
 
 // Automatically update the year
