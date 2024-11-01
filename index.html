@@ -21,6 +21,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      z-index: 0; 
     }
 
     .mySlides {
@@ -40,7 +41,7 @@
 
     .fade {
       animation-name: fade;
-      animation-duration: 1.5s; /* Adjust fade duration as needed */
+      animation-duration: 1.5s;
     }
 
     @keyframes fade {
@@ -48,36 +49,31 @@
       to {opacity: 1}
     }
 
-    .prev, .next {
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 2; 
       cursor: pointer;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .overlay {
       position: absolute;
-      top: 50%;
-      width: auto;
-      margin-top: -22px;
-      padding: 16px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); 
+      z-index: 1; 
     }
 
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    header {
-      text-align: center;
-      padding: 2rem 0;
+    .content {
       position: relative;
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2; 
+      text-align: center;
+      padding-top: 100px; 
     }
 
     h1 {
@@ -139,14 +135,17 @@
       <img src="img/img08.jpg" alt="Image 8">
     </div>
 
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
   </div>
 
-  <header>
+  <div class="overlay"></div>
+
+  <div class="menu-icon">
+    <i class="fas fa-bars"></i> 
+  </div>
+
+  <div class="content">
     <h1>Welcome to Gondals</h1>
-  </header>
+  </div>
 
   <footer>
     <p>&copy; <span id="currentYear"></span> gondal.pk</p>
@@ -158,29 +157,21 @@
   </footer>
 
   <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    let slideIndex = 0; 
+    showSlides();
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
+    function showSlides() {
       let i;
       let slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
       }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
       slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 4000); 
     }
 
-    // Get the current year
     const currentYear = new Date().getFullYear();
     const yearElement = document.getElementById("currentYear");
     yearElement.textContent = currentYear;
