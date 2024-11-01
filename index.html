@@ -1,181 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Gondals</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slideshow-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0; 
-    }
-
-    .mySlides {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .mySlides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .fade {
-      animation-name: fade;
-      animation-duration: 1.5s;
-    }
-
-    @keyframes fade {
-      from {opacity: 0.4} 
-      to {opacity: 1}
-    }
-
-    .menu-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 2; 
-      cursor: pointer;
-      font-size: 2rem;
-      color: #fff;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); 
-      z-index: 1; 
-    }
-
-    .content {
-      position: relative;
-      z-index: 2; 
-      text-align: center;
-      padding-top: 100px; 
-    }
-
-    h1 {
-      font-size: 3rem;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1rem 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      z-index: 1;
-    }
-
-    .social-links a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 1.5rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Gondals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-  <div class="slideshow-container">
-
-    <div class="mySlides fade">
-      <img src="img/img01.jpg" alt="Image 1">
+    <div class="slideshow-container">
+        <div class="overlay"></div>
+        <div class="typewriter">
+            <h1 id="welcome-text"></h1>
+        </div>
     </div>
 
-    <div class="mySlides fade">
-      <img src="img/img02.jpg" alt="Image 2">
-    </div>
+    <footer>
+        <p>Copyright &copy; <span id="year"></span> gondal.pk</p>
+        <div class="social-links">
+            <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com/yourusername" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:yourname@gondal.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
 
-    <div class="mySlides fade">
-      <img src="img/img03.jpg" alt="Image 3">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="img/img04.jpg" alt="Image 4">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="img/img05.jpg" alt="Image 5">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="img/img06.jpg" alt="Image 6">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="img/img07.jpg" alt="Image 7">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="img/img08.jpg" alt="Image 8">
-    </div>
-
-  </div>
-
-  <div class="overlay"></div>
-
-  <div class="menu-icon">
-    <i class="fas fa-bars"></i> 
-  </div>
-
-  <div class="content">
-    <h1>Welcome to Gondals</h1>
-  </div>
-
-  <footer>
-    <p>&copy; <span id="currentYear"></span> gondal.pk</p>
-    <div class="social-links">
-      <a href="https://www.facebook.com/your_facebook_page" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/your_instagram_page" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="mailto:your_email@gondal.pk"><i class="fas fa-envelope"></i></a>
-    </div>
-  </footer>
-
-  <script>
-    let slideIndex = 0; 
-    showSlides();
-
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 4000); 
-    }
-
-    const currentYear = new Date().getFullYear();
-    const yearElement = document.getElementById("currentYear");
-    yearElement.textContent = currentYear;
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
