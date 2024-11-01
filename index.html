@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Gondals</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slideshow-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mySlides {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mySlides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s; /* Adjust fade duration as needed */
+    }
+
+    @keyframes fade {
+      from {opacity: 0.4} 
+      to {opacity: 1}
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="img/img01.jpg" alt="Image 1">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img02.jpg" alt="Image 2">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img03.jpg" alt="Image 3">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img04.jpg" alt="Image 4">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img05.jpg" alt="Image 5">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img06.jpg" alt="Image 6">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img07.jpg" alt="Image 7">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="img/img08.jpg" alt="Image 8">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+
+  <header>
+    <h1>Welcome to Gondals</h1>
+  </header>
+
+  <footer>
+    <p>&copy; <span id="currentYear"></span> gondal.pk</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/your_facebook_page" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/your_instagram_page" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:your_email@gondal.pk"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slides[slideIndex-1].style.display = "block";  
+    }
+
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById("currentYear");
+    yearElement.textContent = currentYear;
+  </script>
+
+</body>
+</html>
