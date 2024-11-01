@@ -1,0 +1,64 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    animation: slideShow 40s infinite;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideShow {
+    0%, 12.5% { background-image: url('img/img01.jpg'); }
+    12.5%, 25% { background-image: url('img/img02.jpg'); }
+    25%, 37.5% { background-image: url('img/img03.jpg'); }
+    37.5%, 50% { background-image: url('img/img04.jpg'); }
+    50%, 62.5% { background-image: url('img/img05.jpg'); }
+    62.5%, 75% { background-image: url('img/img06.jpg'); }
+    75%, 87.5% { background-image: url('img/img07.jpg'); }
+    87.5%, 100% { background-image: url('img/img08.jpg'); }
+}
+
+.typewriter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #ccc;
+}
