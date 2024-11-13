@@ -122,13 +122,23 @@ body {
 #logo {
     max-width: 200px; 
     height: auto;
-    animation: flip-flap 2s linear 1;
+    position: relative; /* Ensure relative positioning */
+    top: -50px; /* Adjust this value to control the initial height */
+    animation: drop-in 1s ease-out forwards; /* Apply the animation */
+    opacity: 0; /* Initially hide the logo */
 }
 
-@keyframes flip-flap {
-     0% { transform: translateY(0); opacity: 1; } 
-     50% { transform: translateY(-50%) rotateX(90deg); opacity: 0.5; } 
-     100% { transform: translateY(-100%); opacity: 1; }
+@keyframes drop-in {
+    0% { 
+        top: -65px; /* Starting position */
+        opacity: 0; /* Hidden */
+        transform: scale(0.5); /* Smaller size */
+    }
+    75% { 
+        top: 0; /* Final position */
+        opacity: 1; /* Fully visible */
+        transform: scale(1); /* Final size */
+    }
 }
 
 /* type letters */
