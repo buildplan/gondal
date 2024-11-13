@@ -122,12 +122,13 @@ body {
 #logo {
     max-width: 200px; 
     height: auto;
-    animation: rotate 5s linear infinite; /* Add animation */
+    animation: flip-flap 2s linear 1;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes flip-flap {
+     0% { transform: translateY(0); opacity: 1; } 
+     50% { transform: translateY(-50%) rotateX(90deg); opacity: 0.5; } 
+     100% { transform: translateY(-100%); opacity: 1; }
 }
 
 /* type letters */
