@@ -118,6 +118,18 @@ body {
     body {
       padding: 5em 1.25em 1.25em 1.25em; } }
 
+/* logo size and animation */
+#logo {
+    max-width: 200px; 
+    height: auto;
+    animation: rotate 5s linear infinite; /* Add animation */
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 /* type letters */
 #typewriter::after {
     content: '|';
